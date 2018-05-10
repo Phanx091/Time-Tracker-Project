@@ -10,9 +10,11 @@ router.get('/', (req,res) => {
     FROM "task" JOIN "task_projects" ON "task"."id" = "task_projects"."task_id"
     JOIN "projects" ON "task_projects"."task_id" = "projects"."id"
     GROUP BY "task"."id";`;
-    pool.query(queryText).then((results) => {
-        res.send(results.row);
-        console.log(results.row);
+    pool.query(queryText)
+    .then((results) => {
+        res.send(results.rows);
+        console.log(results.rows);
+        console.log(queryText);
     })
     .catch((error) => {
         alert('Error on router.get');
