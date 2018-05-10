@@ -32,29 +32,14 @@
                     <th>Hours</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>Populated database</td>
-                    <td>Koala Holla</td>
-                    <td>5/5/18</td>
-                    <td>0.5</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>Populated database</td>
-                    <td>Koala Holla</td>
-                    <td>5/5/18</td>
-                    <td>0.5</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>Populated database</td>
-                    <td>Koala Holla</td>
-                    <td>5/5/18</td>
-                    <td>0.5</td>
+                <tr ng-repeat="task in vm.displayTask.list">
+                    <td><input type="text" ng-model="task.task_name"></td>
+                    <td><input type="text" ng-model="task.projects"></td>
+                    <td><input type="text" ng-model="task.posting_date"></td>
+                    <td><input type="text" ng-model="task.start_at">/<input type="text" ng-model="task.end_at"></td>
                     <td>Delete</td>
                 </tr>
             </thread>
-
         </table>
         
 
