@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const timeRouter = require('./routes/time-route');
+const homeRouter = require('./routes/home-route');
 
 const PORT = process.env.PORT || 5000;
 
@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('server/public'));
 
-app.use('/time', timeRouter);
+app.use('/home', homeRouter);
 
 app.listen(PORT, function(){
     console.log('listening on PORT', PORT);  
