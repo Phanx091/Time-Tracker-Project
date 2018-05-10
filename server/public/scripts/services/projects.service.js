@@ -25,7 +25,7 @@ app.service('TimeService', ['$http', function($http) {
 
 
 
-
+    self.getTask();
 
 
 }])
