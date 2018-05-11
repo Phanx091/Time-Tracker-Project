@@ -102,3 +102,16 @@ GROUP BY "task_projects"."project_id",
 "task"."task_name", "task"."posting_date", "task"."start_at", "task"."end_at";
 
 
+
+ALTER TABLE "public"."task"
+  ADD COLUMN "project_id" integer,
+  ADD CONSTRAINT "project_id" FOREIGN KEY ("project_id") REFERENCES "public"."projects"("id") ON DELETE CASCADE;
+
+
+
+UPDATE "public"."task" SET "project_id"=3 WHERE "id"=8 RETURNING "id", "task_name", "posting_date", "start_at", "end_at", "project_id";
+UPDATE "public"."task" SET "project_id"=6 WHERE "id"=3 RETURNING "id", "task_name", "posting_date", "start_at", "end_at", "project_id";
+UPDATE "public"."task" SET "project_id"=2 WHERE "id"=5 OR "id"=10 OR "id"=12 RETURNING "id", "task_name", "posting_date", "start_at", "end_at", "project_id";
+UPDATE "public"."task" SET "project_id"=5 WHERE "id"=6 OR "id"=7 OR "id"=11 RETURNING "id", "task_name", "posting_date", "start_at", "end_at", "project_id";
+UPDATE "public"."task" SET "project_id"=1 WHERE "id"=2 OR "id"=9 OR "id"=13 RETURNING "id", "task_name", "posting_date", "start_at", "end_at", "project_id";
+UPDATE "public"."task" SET "project_id"=4 WHERE "id"=1 OR "id"=4 RETURNING "id", "task_name", "posting_date", "start_at", "end_at", "project_id";

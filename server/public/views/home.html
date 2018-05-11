@@ -2,46 +2,46 @@
 
 
 <div class="container">
-    <form>
+    
         <h2>Add Entry</h2>
         <div class="row">
-            <input type="text" placeholder="What did you do?">
+            <input type="text" ng-model="newTask.task_name" placeholder="What did you do?">
         </div>
         <div class="row">
-            <select>
-                    <option selected disabled hidden>Projects</option>
-                    <option value="time-tracker-project">project</option>
-                    <option value="time-tracker-zero">zero</option>
-                    <option value="time-tracker-one">one</option>
-                    <option value="time-tracker-two">two</option>
-                    <option value="time-tracker-three">three</option>
-                    <option value="time-tracker-four">four</option>
-                </select>
-                <input type="date">
-                <input type="number" placeholder="Start Time">
-                <input type="number" placeholder="End Time">
-                <input type="submit">
-            </div>
-        <h2>History</h2>
-        <table>
-            <thread>
-                <tr>
-                    <th>Entry</th>
-                    <th>Project</th>
-                    <th>Date</th>
-                    <th>Hours</th>
-                    <th>Action</th>
-                </tr>
-                <tr ng-repeat="task in vm.displayTask.list">
-                    <td><input type="text" ng-model="task.task_name"></td>
-                    <td><input type="text" ng-model="task.projects"></td>
-                    <td><input type="text" ng-model="task.posting_date"></td>
-                    <td><input type="text" ng-model="task.start_at">/<input type="text" ng-model="task.end_at"></td>
-                    <td>Delete</td>
-                </tr>
-            </thread>
-        </table>
-        
+            <select ng-model="newTask.project_id">
+                <option selected disabled hidden>Projects</option>
+                <option ng-repeat="project in getProject.list" ng-value="project.id">project</option>
+            </select>
+                <input type="date" ng-model="newTask.posting_date">
+                <input type="time" placeholder="Start Time" ng-model="newTask.start_at">
+                <input type="time" placeholder="End Time" ng-model="newTask.end_at">
+                <button ng-click="vm.postTask(newTask)">submit</button>
+        </div>
+    
+
+
+
+
+    <h2>History</h2>
+    <table>
+        <thread>
+            <tr>
+                <th>Entry</th>
+                <th>Project</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="task in vm.displayTask.list">
+                <td><input type="text" ng-model="task.task_name"></td>
+                <td><input type="text" ng-model="task.project_name"></td>
+                <td>{{task.posting_date | date}}</td>
+                <td>{{task.start_a + task.end_at |date: H:mm}}</td>
+                <td><button>delete</button></td>
+            </tr>
+        </thread>
+    </table>
+    
 
 
 
@@ -50,7 +50,7 @@
 
 
         
-    </form>
+
 
 
 

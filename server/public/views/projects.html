@@ -1,1 +1,27 @@
 <h2>projects</h2>
+<div class="container"></div>
+    <div class="row">
+        <input type="text" ng-model="addProject.project_name" placeholder="Type a new Project">
+        <button ng-click="vm.postProject(addProject)">add</button>
+    </div> 
+    <table>
+        <thread>
+            <tr>
+                <th>Project</th>
+                <th>total hours</th>
+                <th>total hours</th>
+                <th>delete</th>
+            </tr>
+        </thread>
+        <tbody>
+            <tr ng-repeat="project in vm.getProject.list ">
+                <td>{{project.project_name}}</td>
+                <td>{{project.start_at}}</td>
+                <td>{{project.end_at}}</td>
+                <td><button>delete</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
