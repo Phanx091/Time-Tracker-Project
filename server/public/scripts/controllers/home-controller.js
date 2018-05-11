@@ -5,9 +5,11 @@ app.controller('HomeController', ['$http','TimeService', function($http, TimeSer
     self.getTask = TimeService.getTask;
     self.displayTask = TimeService.listing;
     self.postTask = TimeService.postTask;
-
-    self.getProject = TimeService.listingProject;
-
+    self.getProject = TimeService.getProject;
+    self.listingProject = TimeService.listingProject;
+   
     self.getTask();
+    self.getProject();
+    
 
 }]);
