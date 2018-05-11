@@ -14,13 +14,12 @@
             </tr>
         </thread>
         <tbody>
-            <tr ng-repeat="project in vm.getProject.list ">
+            <tr ng-repeat="project in vm.getProjectShow.list">
                 <td>{{project.project_name}}</td>
                 <td>{{project.start_at}}</td>
                 <td>{{project.end_at}}</td>
                 <td><button>delete</button></td>
             </tr>
-
         </tbody>
     </table>
 

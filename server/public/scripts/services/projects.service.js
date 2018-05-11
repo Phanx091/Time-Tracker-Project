@@ -1,6 +1,7 @@
 app.service('TimeService', ['$http', function($http) {
     var self = this;
     self.listing = { list: [] };
+    self.listingProject = { list: [] };
 
 
     self.getTask = function() {
@@ -16,14 +17,13 @@ app.service('TimeService', ['$http', function($http) {
         });
     }
 
-    self.getTask = function() {
+    self.getProject = function() {
         $http({
             method: 'GET',
             url: '/projects', 
         }).then(function(response) {
-            self.listing.list = response.data;
+            self.listingProject.list = response.data;
             console.log('getTask successful', response);
-            // console.log(self.listing.list);
         }).catch(function(error) {
             console.log('error on getTask', error)
         });
@@ -48,7 +48,7 @@ app.service('TimeService', ['$http', function($http) {
             url: '/projects',
             data: newPostOnProject
         }).then(function(response) {
-            self.getTask();
+            self.getProject();
             console.log('successful postTask', response)
         }).catch(function(error) {
             console.log('error on postTask', error)

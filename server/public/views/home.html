@@ -9,8 +9,8 @@
         </div>
         <div class="row">
             <select ng-model="newTask.project_id">
-                <option selected disabled hidden>Projects</option>
-                <option ng-repeat="project in getProject.list" ng-value="project.id">project</option>
+                <!-- <option selected disabled hidden>Projects</option> -->
+                <option ng-repeat="project in vm.getProject.list" ng-value="project.id">{{project.project_name}}</option>
             </select>
                 <input type="date" ng-model="newTask.posting_date">
                 <input type="time" placeholder="Start Time" ng-model="newTask.start_at">

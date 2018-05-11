@@ -9,7 +9,6 @@ router.get('/', (req,res) => {
     pool.query(queryText)
     .then((results) => {
         res.send(results.rows);
-        console.log(results.rows);
     })
     .catch((error) => {
         alert('Error on router.get');

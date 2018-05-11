@@ -5,10 +5,10 @@ const pool = require('../modules/pool');
 
 
 router.post('/', (req,res) => {
-    const post = req.body;
+    const postThisProject = req.body;
     const queryText = `INSERT INTO "projects" ("project_name")
                        VALUES ($1);`;
-    pool.query(queryText, [post.project_name]).then((result) => {
+    pool.query(queryText, [postThisProject.project_name]).then((result) => {
         res.sendStatus(200);
     })
     .catch((error) => {
@@ -18,8 +18,7 @@ router.post('/', (req,res) => {
 });
 
 router.get('/', (req,res) => {
-    const queryText = `SELECT * FROM "task"
-                       JOIN "projects" ON "task"."project_id" = "projects"."id";`;
+    const queryText = `SELECT * FROM "projects";`;
     pool.query(queryText)
     .then((results) => {
         res.send(results.rows);
