@@ -1,24 +1,27 @@
 
 app.service('EntryService', ['$http', function($http) {
     var self = this;
+    self.entries = { 
+        list: []
+     };
 
     self.dataEntry = {
         entry_task: '',
         date: '',
-        start_time: new Date(),
-        end_time: new Date(),
+        start_time: '',
+        end_time: '',
         input_hours: '',
         project_id: ''
     }; // end of objects 
     
-    self.newEntry = function(newPost) {
-        let input_hours = (newPost.end_time - newPost.start_time) / (1000 * 60 * 60);
-        self.newDataEntry = {
+    self.postEntry = function(newPost) {
+        let hours = (newPost.end_time - newPost.start_time) / (1000 * 60 * 60);
+        newDataEntry = {
             entry_task: newPost.entry,
             date: newPost.date,
             start_time: newPost.start_time,
             end_time: newPost.end_time,
-            input_hours: hours,
+            hours: hours,
             project_id: newPost.project_id
         };
         $http({
@@ -37,7 +40,7 @@ app.service('EntryService', ['$http', function($http) {
             method: 'GET',
             url: '/entry', 
         }).then(function(response) {
-            self.dataEntry = response.data;
+            self.entries = response.data;
             console.log('successful self.getTask', response);
         }).catch(function(error) {
             console.log('error on self.getTask', error)

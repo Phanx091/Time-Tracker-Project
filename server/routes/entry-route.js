@@ -18,8 +18,8 @@ router.get('/', (req,res) => {
 
 router.post('/', (req,res) => {
     const posting = req.body;
-    const queryText = `INSERT INTO "task" ("entry_task", "date", "start_time", "end_time", "hours," "project_id")
-                       VALUES ($1, $2, $3, $4, $5, $6);`;
+    const queryText = `INSERT INTO "task" ("entry_task", "date", "start_time", "end_time", "project_id")
+                       VALUES ($1, $2, $3, $4, $5);`;
     pool.query(queryText, [posting.entry_task, posting.date, posting.start_time, posting.end_time, posting.hours, posting.project_id])
     .then((result) => {
         res.sendStatus(200);
@@ -44,13 +44,4 @@ router.delete('/', (req,res) => {
         res.sendStatus(500);
     });
 });
-
-
-
-
-
-
-
-
-
 module.exports = router;

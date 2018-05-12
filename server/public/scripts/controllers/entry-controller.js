@@ -4,13 +4,15 @@ app.controller('EntryController', ['$http','EntryService', 'ProjectService', fun
 
     
 
-    self.displayTask = EntryService.dataEntry;
-    self.getTask = EntryService.getTask;
-    self.newEntry = EntryService.newEntry;
-    self.deleteTask = EntryService.deleteTask;
+    self.entries = EntryService.entries; // object of array from entry
+
+    self.getTask = EntryService.getTask; // get task
+    self.postEntry = EntryService.postEntry; // post
+    self.deleteTask = EntryService.deleteTask; // delete 
 
     self.getProject = ProjectService.getProject; // get project 
-
+    self.listing = ProjectService.listing; // object of array from project 
+    self.displayProject = ProjectService.listing;
    
     self.getTask();
     self.getProject();

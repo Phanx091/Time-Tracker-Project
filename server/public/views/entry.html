@@ -6,12 +6,12 @@
     </div>
     <div class="row">
         <select ng-model="new.project_id">
-            <option ng-repeat="project in vm.getProject" ng-value="project.id">{{project.project_name}}</option>
+            <option ng-repeat="project in vm.displayProject.list" ng-value="project.id">{{project.project_name}}</option>
         </select>
             <input type="date" ng-model="new.date">
             <input type="time" placeholder="Start Time" ng-model="new.start_time">
             <input type="time" placeholder="End Time" ng-model="new.end_time">
-            <button ng-click="vm.newEntry(new)">submit</button>
+            <button ng-click="vm.postEntry(new)">submit</button>
     </div>
     <h2>History</h2>
     <table>
@@ -23,8 +23,8 @@
                 <th>Hours</th>
                 <th>Action</th>
             </tr>
-            <tr ng-repeat="task in vm.displayTask">
-                <td>{{task.entry_name}}</td>
+            <tr ng-repeat="task in vm.entries.list">
+                <td>{{task.entry_task}}</td>
                 <td>{{task.project_name}}</td>
                 <td>{{task.date | date: 'MM-dd-yy'}}</td>
                 <td>{{task.hours}}</td>
@@ -33,6 +33,7 @@
         </thread>
     </table>
     
+
 
 
 

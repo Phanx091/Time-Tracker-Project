@@ -1,6 +1,10 @@
 app.service('ProjectService', ['$http', function($http) {
     var self = this;
-    self.listing = { list: [] };
+    self.listing = { 
+        list: []
+     };
+
+     
 
     self.getProject = function() {
         $http({
@@ -10,7 +14,7 @@ app.service('ProjectService', ['$http', function($http) {
             self.listing.list = response.data;
             console.log('successful self.getProject', response);
         }).catch(function(error) {
-            console.log('error on getTask', error)
+            console.log(`error on getTask ${error}`)
         });
     } // end of self.getProject
 
@@ -23,20 +27,20 @@ app.service('ProjectService', ['$http', function($http) {
             self.getProject();
             console.log('successful self.postProject', response)
         }).catch(function(error) {
-            console.log('error on self.postProject', error)
+            console.log(`error on self.postProject ${error}`)
         });
     } // end of self.postProject 
 
-    self.deleteProject = function(projectDelete) {
+    self.deleteProject = function(id) {
         $http({
             method: 'DELETE',
             url: '/projects',
-            params: projectDelete
+            params: id
         }).then((response) => {
             self.getProject();
         })
         .catch((error) => {
-            console.log('error on self.deleteProject', error);
+            console.log(`error on self.deleteProject ${error}`);
         });
     } // end of self.deleteProject
 }]) // end of app.service

@@ -37,8 +37,9 @@ router.delete('/', (req,res) => {
     console.log('DELETE/task');
     const deleteProject = req.query.id;
     console.log(deleteProject);
-    const queryText = `DELETE FROM "projects" WHERE "id" = $1;`;
-    pool.query(queryText,[deleteProject]).then((results) => {
+    const queryText = 'DELETE FROM "projects" WHERE "id" = $1';
+    pool.query(queryText,[deleteProject])
+    .then((response) => {
         res.sendStatus(200);
         console.log('delete success')
     })
