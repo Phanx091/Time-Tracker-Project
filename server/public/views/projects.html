@@ -1,4 +1,4 @@
-<h2>projects</h2>
+<h2>Projects ({{filtered.length}})</h2>
 <div class="container"></div>
     <div class="row">
         <input type="text" ng-model="newEntryProject.project_name" placeholder="Type a new Project">
@@ -13,9 +13,9 @@
             </tr>
         </thread>
         <tbody>
-            <tr ng-repeat="project in vm.displayProject.list">
+            <tr ng-repeat="project in vm.displayProject.list | orderBy:'sum' | filter: query as filtered">
                 <td>{{project.project_name}}</td>
-                <td>{{project.hours}}</td>
+                <td>{{project.sum}}</td>
                 <td><button ng-click="vm.deleteProject(project)">delete</button></td>
             </tr>
         </tbody>

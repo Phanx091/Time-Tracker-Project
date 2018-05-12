@@ -4,26 +4,9 @@ app.service('EntryService', ['$http', function($http) {
     self.entries = { 
         list: []
      };
-
-    // self.dataEntry = {
-    //     entry_task: '',
-    //     date: '',
-    //     start_time: '',
-    //     end_time: '',
-    //     input_hours: '',
-    //     project_id: ''
-    // };
     
     self.postEntry = function(newPost) {
         newPost.hours = (newPost.end_time - newPost.start_time) / (1000 * 60 * 60);
-        // newDataEntry = {
-        //     entry_task: newPost.entry,
-        //     date: newPost.date,
-        //     start_time: newPost.start_time,
-        //     end_time: newPost.end_time,
-        //     hours: hours,
-        //     project_id: newPost.project_id
-        // };
         $http({
             method: 'POST',
             url: '/entry',
@@ -46,16 +29,15 @@ app.service('EntryService', ['$http', function($http) {
             console.log('error on self.getTask', error)
         });
     } // end of self.getTask
-    self.deleteTask = function(taskDelete) {
+    self.deleteTask = function(id) {
         $http({
             method: 'DELETE',
-            url: '/entry',
-            params: taskDelete
+            url: `/entry/${id}`
         }).then((response) => {
             self.getTask();
         })
         .catch((error) => {
-            console.log('error on self.deleteTask', error);
+            console.log(`error on self.deleteTask ${error}`);
         });
     } // end of self.deleteTask
     self.getTask();
