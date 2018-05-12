@@ -5,25 +5,25 @@ app.service('EntryService', ['$http', function($http) {
         list: []
      };
 
-    self.dataEntry = {
-        entry_task: '',
-        date: '',
-        start_time: '',
-        end_time: '',
-        input_hours: '',
-        project_id: ''
-    }; // end of objects 
+    // self.dataEntry = {
+    //     entry_task: '',
+    //     date: '',
+    //     start_time: '',
+    //     end_time: '',
+    //     input_hours: '',
+    //     project_id: ''
+    // };
     
     self.postEntry = function(newPost) {
-        let hours = (newPost.end_time - newPost.start_time) / (1000 * 60 * 60);
-        newDataEntry = {
-            entry_task: newPost.entry,
-            date: newPost.date,
-            start_time: newPost.start_time,
-            end_time: newPost.end_time,
-            hours: hours,
-            project_id: newPost.project_id
-        };
+        newPost.hours = (newPost.end_time - newPost.start_time) / (1000 * 60 * 60);
+        // newDataEntry = {
+        //     entry_task: newPost.entry,
+        //     date: newPost.date,
+        //     start_time: newPost.start_time,
+        //     end_time: newPost.end_time,
+        //     hours: hours,
+        //     project_id: newPost.project_id
+        // };
         $http({
             method: 'POST',
             url: '/entry',
@@ -40,7 +40,7 @@ app.service('EntryService', ['$http', function($http) {
             method: 'GET',
             url: '/entry', 
         }).then(function(response) {
-            self.entries = response.data;
+            self.entries.list = response.data;
             console.log('successful self.getTask', response);
         }).catch(function(error) {
             console.log('error on self.getTask', error)
