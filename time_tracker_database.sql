@@ -4,7 +4,8 @@ CREATE TABLE "task" (
     "task_name" VARCHAR(400) NOT NULL,
 	"posting_date" DATE NOT NULL DEFAULT CURRENT_DATE,
 	"start_at" TIME NOT NULL,
-	"end_at" TIME NOT NULL 
+	"end_at" TIME NOT NULL
+	"project_id" integer
 );
 -- query for projects 
 CREATE TABLE "projects" (

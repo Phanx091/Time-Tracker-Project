@@ -1,70 +1,42 @@
-app.service('TimeService', ['$http', function($http) {
+app.service('ProjectService', ['$http', function($http) {
     var self = this;
     self.listing = { list: [] };
-    self.listingProject = { list: [] };
-
-
-    self.getTask = function() {
-        $http({
-            method: 'GET',
-            url: '/home', 
-        }).then(function(response) {
-            self.listing.list = response.data;
-            console.log('getTask successful', response);
-            // console.log(self.listing.list);
-        }).catch(function(error) {
-            console.log('error on getTask', error)
-        });
-    }
 
     self.getProject = function() {
         $http({
             method: 'GET',
             url: '/projects', 
         }).then(function(response) {
-            self.listingProject.list = response.data;
-            console.log('getTask successful', response);
+            self.listing.list = response.data;
+            console.log('successful self.getProject', response);
         }).catch(function(error) {
             console.log('error on getTask', error)
         });
-    }
+    } // end of self.getProject
 
-    self.postTask = function(newPostOnTask) {
-        $http({
-            method: 'POST',
-            url: '/home',
-            data: newPostOnTask
-        }).then(function(response) {
-            self.getTask();
-            console.log('successful postTask', response)
-        }).catch(function(error) {
-            console.log('error on postTask', error)
-        });
-    };
-
-    self.postProject = function(newPostOnProject) {
+    self.postProject = function(newProject) {
         $http({
             method: 'POST',
             url: '/projects',
-            data: newPostOnProject
+            data: newProject
         }).then(function(response) {
             self.getProject();
-            console.log('successful postTask', response)
+            console.log('successful self.postProject', response)
         }).catch(function(error) {
-            console.log('error on postTask', error)
+            console.log('error on self.postProject', error)
         });
-    };
-    
+    } // end of self.postProject 
 
- 
-
-
-
-
-
-
-
-    self.getTask();
-
-
-}])
+    self.deleteProject = function(projectDelete) {
+        $http({
+            method: 'DELETE',
+            url: '/projects',
+            params: projectDelete
+        }).then((response) => {
+            self.getProject();
+        })
+        .catch((error) => {
+            console.log('error on self.deleteProject', error);
+        });
+    } // end of self.deleteProject
+}]) // end of app.service

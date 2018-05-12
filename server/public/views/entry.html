@@ -1,0 +1,54 @@
+
+<div class="container">
+<h2>Add Entry</h2>
+    <div class="row">
+        <input type="text" ng-model="new.task_name" placeholder="What did you do?">
+    </div>
+    <div class="row">
+        <select ng-model="new.project_id">
+            <option ng-repeat="project in vm.getProject" ng-value="project.id">{{project.project_name}}</option>
+        </select>
+            <input type="date" ng-model="new.date">
+            <input type="time" placeholder="Start Time" ng-model="new.start_time">
+            <input type="time" placeholder="End Time" ng-model="new.end_time">
+            <button ng-click="vm.newEntry(new)">submit</button>
+    </div>
+    <h2>History</h2>
+    <table>
+        <thread>
+            <tr>
+                <th>Entry</th>
+                <th>Project</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="task in vm.displayTask">
+                <td>{{task.entry_name}}</td>
+                <td>{{task.project_name}}</td>
+                <td>{{task.date | date: 'MM-dd-yy'}}</td>
+                <td>{{task.hours}}</td>
+                <td><button ng-click="vm.deleteTask(task)">delete</button></td>
+            </tr>
+        </thread>
+    </table>
+    
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

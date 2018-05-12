@@ -1,10 +1,11 @@
-app.controller('ProjectsController', ['$http','TimeService', function($http, TimeService){
+app.controller('ProjectsController', ['$http','ProjectService', function($http, ProjectService){
     var self = this;
     console.log('ProjectsController is loaded');
 
-    self.getProjectShow = TimeService.listingProject; // get projects from database 
-    self.postProject = TimeService.postProject; // posting to new project 
-    self.getProject = TimeService.getProject;
+    self.displayProject = ProjectService.listing; // get projects from database 
+    self.postProject = ProjectService.postProject; // posting to new project 
+    self.getProject = ProjectService.getProject;
+    self.deleteProject = ProjectService.deleteProject;
     self.getProject();
 
 }]);

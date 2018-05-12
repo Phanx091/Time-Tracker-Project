@@ -4,8 +4,8 @@ var app = angular.module('TimeApp', ['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/', {
-        templateUrl: '/views/home.html',
-        controller: 'HomeController as vm'
+        templateUrl: '/views/entry.html',
+        controller: 'EntryController as vm'
     }).when('/projects', {
         templateUrl: '/views/projects.html',
         controller: 'ProjectsController as vm'

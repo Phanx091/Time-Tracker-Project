@@ -18,7 +18,9 @@ router.post('/', (req,res) => {
 });
 
 router.get('/', (req,res) => {
-    const queryText = `SELECT * FROM "projects";`;
+    const queryText = `
+    SELECT * FROM "task"
+    FULL JOIN "projects" ON "task"."project_id" = "projects"."id";`;
     pool.query(queryText)
     .then((results) => {
         res.send(results.rows);
@@ -30,6 +32,21 @@ router.get('/', (req,res) => {
     });
 });
 
+
+router.delete('/', (req,res) => {
+    console.log('DELETE/task');
+    const deleteProject = req.query.id;
+    console.log(deleteProject);
+    const queryText = `DELETE FROM "projects" WHERE "id" = $1;`;
+    pool.query(queryText,[deleteProject]).then((results) => {
+        res.sendStatus(200);
+        console.log('delete success')
+    })
+    .catch((error) => {
+        console.log('error on router.delete in entry', error);
+        res.sendStatus(500);
+    });
+});
 
 
 
