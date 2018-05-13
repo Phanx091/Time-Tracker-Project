@@ -37,11 +37,10 @@ app.service("ProjectService", [
         });
     }; // end of self.postProject
 
-    self.deleteProject = function(id) {
+    self.deleteProject = function(project) {
       $http({
         method: "DELETE",
-        url: "/projects",
-        params: id
+        url: `/projects/${project.id}`
       })
         .then(response => {
           self.getProject();
