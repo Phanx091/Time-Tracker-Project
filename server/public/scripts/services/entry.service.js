@@ -29,12 +29,11 @@ app.service('EntryService', ['$http', function($http) {
             console.log('error on self.getTask', error)
         });
     } // end of self.getTask
-    self.deleteTask = function(id) {
-        console.log(id);
+    self.deleteTask = function(task) {
+        console.log(task);
         $http({
             method: 'DELETE',
-            url: '/entry',
-            params: id
+            url: `/entry/${task.id}`,
         }).then((response) => {
             self.getTask();
         })

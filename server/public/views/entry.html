@@ -1,20 +1,16 @@
-
-
-
-
 <div class="container">
-<h2>Add Entry</h2>
-    <div layout="row" class"center-div" layout-align="center center">
+    <h2>Add Entry</h2>
+    <div layout="row" class "center-div" layout-align="center center">
         <div layout="row" layout="center center">
-                <div flex>
-                    <md-input-container>
-                        <label>Write your task here</label>
-                        <input type="text" ng-model="new.entry_task">
-                    </md-input-container>
-                    <md-input-container>
-                        <md-datepicker ng-model="new.date" md-placeholder="Enter date"></md-datepicker>
-                    </md-input-container>
-                </div>
+            <div flex>
+                <md-input-container>
+                    <label>Write your task here</label>
+                    <input type="text" ng-model="new.entry_task">
+                </md-input-container>
+                <md-input-container>
+                    <md-datepicker ng-model="new.date" md-placeholder="Enter date"></md-datepicker>
+                </md-input-container>
+            </div>
         </div>
         <div layout="row" layout="center center">
             <div flex>
@@ -24,81 +20,45 @@
                         <md-select-header>
                             <span>Projects</span>
                         </md-select-header>
-                            <md-option ng-repeat="project in vm.displayProject.list" ng-value="project.id">{{project.project_name}}</md-option>
+                        <md-option ng-repeat="project in vm.displayProject.list" ng-value="project.id">{{project.project_name}}</md-option>
                     </md-select>
                 </md-input-container>
             </div>
         </div>
         <div layout="row" layout="center center">
             <div flex>
-                    <input type="time" placeholder="Start Time" ng-model="new.start_time">
-                    <input type="time" placeholder="End Time" ng-model="new.end_time">
-                    <md-button class="md-accent" ng-click="vm.postEntry(new)">submit</md-button>
+                <input type="time" placeholder="Start Time" ng-model="new.start_time">
+                <input type="time" placeholder="End Time" ng-model="new.end_time">
+                <md-button class="md-accent" ng-click="vm.postEntry(new)">submit</md-button>
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
+</div>
+<div class="row">
+    <h2>History ({{filtered.length}})</h2>
+    <input type="text" ng-model="query" placeholder="Search">
 </div>
 
-
-
-
-
-
-
-
-
-    <div class="row">
-        <h2>History ({{filtered.length}})</h2>
-        <input type="text" ng-model="query" placeholder="Search"> 
-    </div>
-
 </div>
-    <div layout="row" class"center-div" layout-align="center center">
-        <table>
-            <thread>
-                <tr>
-                    <th>Entry</th>
-                    <th>Project</th>
-                    <th>Date</th>
-                    <th>Hours</th>
-                    <th>Action</th>
-                </tr>
-                <tr ng-repeat="task in vm.entries.list | filter:query | orderBy:'-date' | filter: query as filtered">
-                    <td>{{task.entry_task}}</td>
-                    <td>{{task.project_name}}</td>
-                    <td>{{task.date | date: 'MM-dd-yy'}}</td>
-                    <td>{{task.hours}}</td>
-                    <td><md-button class="md-accent md-raised md-hue-1" ng-click="vm.deleteTask(task)">delete</md-button></td>
-                </tr>
-            </thread>
-        </table>
-    </div>
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
+<div layout="row" class "center-div" layout-align="center center">
+    <table>
+        <thread>
+            <tr>
+                <th>Entry</th>
+                <th>Project</th>
+                <th>Date</th>
+                <th>Hours</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="task in vm.entries.list | filter:query | orderBy:'-date' | filter: query as filtered" ng-value="project.id">
+                <td>{{task.entry_task}}</td>
+                <td>{{task.project_name}}</td>
+                <td>{{task.date | date: 'MM-dd-yy'}}</td>
+                <td>{{task.hours}}</td>
+                <td>
+                    <md-button class="md-accent md-raised md-hue-1" ng-click="vm.deleteTask(task)">delete</md-button>
+                </td>
+            </tr>
+        </thread>
+    </table>
+</div>
