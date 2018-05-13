@@ -1,4 +1,4 @@
-app.controller('EntryController', ['$http','EntryService', 'ProjectService', function($http, EntryService, ProjectService){
+app.controller('EntryController', ['$http','EntryService', 'ProjectService', '$mdDialog', function($http, EntryService, ProjectService, $mdDialog){
     var self = this;
     console.log('EntryController is loaded');
 

@@ -30,9 +30,11 @@ app.service('EntryService', ['$http', function($http) {
         });
     } // end of self.getTask
     self.deleteTask = function(id) {
+        console.log(id);
         $http({
             method: 'DELETE',
-            url: `/entry/${id}`
+            url: '/entry',
+            params: id
         }).then((response) => {
             self.getTask();
         })

@@ -1,8 +1,8 @@
 console.log('client is loaded');
 
-var app = angular.module('TimeApp', ['ngRoute']);
+var app = angular.module('TimeApp', ['ngRoute', 'ngMaterial']);
 
-app.config(function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: '/views/entry.html',
         controller: 'EntryController as vm'
@@ -15,4 +15,4 @@ app.config(function($routeProvider) {
     }).otherwise({
         templateUrl: '<h1>404</h1>'
     });
-});
+}]);

@@ -30,9 +30,9 @@ router.post('/', (req,res) => {
     });
 });
 
-router.delete('/:id', (req,res) => {
+router.delete('/', (req,res) => {
     console.log('DELETE/task');
-    const deleteTask = req.params.id;
+    const deleteTask = req.query.id;
     console.log(deleteTask);
     const queryText = 'DELETE FROM "task" WHERE "id" = $1;';
     pool.query(queryText,[deleteTask]).then((response) => {

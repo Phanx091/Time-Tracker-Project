@@ -1,4 +1,4 @@
-app.controller('ProjectsController', ['$http','ProjectService', function($http, ProjectService){
+app.controller('ProjectsController', ['$http','ProjectService', '$mdDialog', '$mdToast', '$animate', function($http, ProjectService, $mdDialog, $mdToast, $animate){
     var self = this;
     console.log('ProjectsController is loaded');
 
@@ -7,5 +7,11 @@ app.controller('ProjectsController', ['$http','ProjectService', function($http, 
     self.getProject = ProjectService.getProject;
     self.deleteProject = ProjectService.deleteProject;
     self.getProject();
+
+
+
+
+
+
 
 }]);

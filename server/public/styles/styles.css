@@ -2,3 +2,11 @@ table, th, td {
     border-collapse: collapse;
     border: 1px solid;
 }
+
+.md-toast.error {
+    background-color: red;
+}
+
+.md-toast.success {
+    background-color: green;
+}
