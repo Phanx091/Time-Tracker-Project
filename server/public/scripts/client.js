@@ -1,6 +1,6 @@
 console.log('client is loaded');
 
-var app = angular.module('TimeApp', ['ngRoute', 'ngMaterial']);
+var app = angular.module('TimeApp', ['ngRoute', 'ngMaterial', 'ngMessages']);
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
@@ -16,3 +16,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: '<h1>404</h1>'
     });
 }]);
+
+app.config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('pink')
+        .accentPalette('orange')
+
+  });

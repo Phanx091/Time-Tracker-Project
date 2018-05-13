@@ -1,45 +1,56 @@
-<div class="container">
+
+
+
+<md-content layout-padding="">
     <h2>Add Entry</h2>
-    <div layout="row" class "center-div" layout-align="center center">
-        <div layout="row" layout="center center">
+    <form name="userForm">
+        <div layout-gt-sm="row" layout="center center">
             <div flex>
-                <md-input-container>
+                <md-input-container class="md-block" flex-get-sm="">
                     <label>Write your task here</label>
-                    <input type="text" ng-model="new.entry_task">
-                </md-input-container>
-                <md-input-container>
-                    <md-datepicker ng-model="new.date" md-placeholder="Enter date"></md-datepicker>
+                    <input type="text" ng-model="new.entry_task" md-maxlength="150" rows="5" md-select-on-focus="">
                 </md-input-container>
             </div>
         </div>
-        <div layout="row" layout="center center">
-            <div flex>
-                <md-input-container>
-                    <md-select ng-model="new.project_id">
-                        <label>Select Project</label>
-                        <md-select-header>
-                            <span>Projects</span>
-                        </md-select-header>
-                        <md-option ng-repeat="project in vm.displayProject.list" ng-value="project.id">{{project.project_name}}</md-option>
-                    </md-select>
-                </md-input-container>
+
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="">
+                <label>Select Project</label>
+                <md-select ng-model="new.project_id">
+                    <md-option ng-repeat="project in vm.displayProject.list" ng-value="project.id">{{project.project_name}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="">
+                <md-datepicker ng-model="new.date" md-placeholder="Enter date"></md-datepicker>
+                
+            </md-input-container>
+            <div layout-padding="">
+                <input type="time" placeholder="Start Time" ng-model="new.start_time" style="width: 100px; height: 20px;">
+                <input type="time" placeholder="End Time" ng-model="new.end_time" style="width: 100px; height: 20px;">
+                <md-button class="md-accent md-raised" ng-click="vm.postEntry(new)">submit</md-button>
             </div>
+
         </div>
-        <div layout="row" layout="center center">
-            <div flex>
-                <input type="time" placeholder="Start Time" ng-model="new.start_time">
-                <input type="time" placeholder="End Time" ng-model="new.end_time">
-                <md-button class="md-accent" ng-click="vm.postEntry(new)">submit</md-button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
+
+    </form>
+</md-content>
+
+
+
+  
+<md-content layout-padding="">
+<div layout-gt-sm="row">
     <h2>History ({{filtered.length}})</h2>
-    <input type="text" ng-model="query" placeholder="Search">
+</div>
+<div layout-gt-sm="row">
+    <md-input-container class="md-block" flex-gt-sm="">
+            <input type="text" ng-model="query" placeholder="Search" style="width: 150px; height: 30px;">
+    </md-input-container>
 </div>
 
-</div>
+</md-content>
+
 <div layout="row" class "center-div" layout-align="center center">
     <table>
         <thread>
@@ -62,3 +73,4 @@
         </thread>
     </table>
 </div>
+
