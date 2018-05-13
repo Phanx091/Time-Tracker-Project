@@ -1,5 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Mr+Dafoe');
+
+
 table, th, td {
     border-collapse: collapse;
     border: 1px solid;
 }
 
+   
+.shadow{
+    font-family:Mr Dafoe, sans-serif;
+    font-size:70px;
+    text-align:center;
+    padding: 10px;
+    text-shadow: 0 -3px 0 #333,
+    0 6px 8px rgba(0,0,0,.4),
+    0 9px 10px rgba(0,0,0,.15),
+    0 30px 10px rgba(0,0,0,.18),
+    0 15px 10px rgba(0,0,0,.21);
+}

@@ -26,7 +26,9 @@
                 
             </md-input-container>
             <div layout-padding="">
+                <label>Start Time:</label>
                 <input type="time" placeholder="Start Time" ng-model="new.start_time" style="width: 100px; height: 20px;">
+                <label>End Time:</label>
                 <input type="time" placeholder="End Time" ng-model="new.end_time" style="width: 100px; height: 20px;">
                 <md-button class="md-accent md-raised" ng-click="vm.postEntry(new)">submit</md-button>
             </div>
