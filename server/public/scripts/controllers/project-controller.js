@@ -7,11 +7,4 @@ app.controller('ProjectsController', ['$http','ProjectService', '$mdDialog', '$m
     self.getProject = ProjectService.getProject;
     self.deleteProject = ProjectService.deleteProject;
     self.getProject();
-
-
-
-
-
-
-
-}]);
+}]); // end of controller

@@ -13,7 +13,7 @@ router.get('/', (req,res) => {
         alert('Error on router.get');
         res.sendStatus(500);
     });
-});
+}); // end of router.get
 
 router.post('/', (req,res) => {
     const posting = req.body;
@@ -27,7 +27,7 @@ router.post('/', (req,res) => {
         console.log('Error on router.post', error);
         res.sendStatus(500);
     });
-});
+}); // end of router.post
 
 router.delete('/:id', (req,res) => {
     console.log(req.query);
@@ -42,26 +42,5 @@ router.delete('/:id', (req,res) => {
         console.log('error on router.delete in entry', error);
         res.sendStatus(500);
     });
-});
-
-
-// router.get('/', (req,res) => {
-//     const queryText = `
-//     SELECT * FROM "task"
-//     FULL JOIN "projects" ON "task"."project_id" = "projects"."id";`;
-//     pool.query(queryText)
-//     .then((results) => {
-//         res.send(results.rows);
-//         console.log(results.rows);
-//     })
-//     .catch((error) => {
-//         console.log(`router.get/projects ${error}`);
-//         res.sendStatus(500);
-//     });
-// });
-
-
-
-
-
+}); // end of router.delete
 module.exports = router;

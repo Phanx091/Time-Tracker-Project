@@ -58,7 +58,7 @@ app.service("EntryService", [
           .hideDelay(3000)
           .position("top right")
       );
-    };
+    }; // end of angularjs material toast (self.addToast)
 
     self.getTask();
   }

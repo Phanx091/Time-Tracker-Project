@@ -27,23 +27,21 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="styles/styles.css">
-
-
-
-    <div ng-app="TimeApp">
-         <md-content class="md-padding">
-            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-                <md-nav-item md-nav-href="#!/">Add Entry</md-nav-item>
-                <md-nav-item md-nav-href="#!/projects">Projects</md-nav-item>
-                <md-nav-item md-nav-href="#!/reports">Reports</md-nav-item>
-            </md-nav-bar>
-                <div class="ext-content" layout="row" layout-align="center">
-                    <div class="shadow">
-                        <h1>Time Tracker</h1>
-                    </div>
+</head>
+<div ng-app="TimeApp">
+        <md-content class="md-padding">
+        <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+            <md-nav-item md-nav-href="#!/">Add Entry</md-nav-item>
+            <md-nav-item md-nav-href="#!/projects">Projects</md-nav-item>
+            <md-nav-item md-nav-href="#!/reports">Reports</md-nav-item>
+        </md-nav-bar>
+            <div class="ext-content" layout="row" layout-align="center">
+                <div class="shadow">
+                    <h1>Time Tracker</h1>
                 </div>
-        </md-content>
-        <body>
-            <ng-view></ng-view>
-        </body>
+            </div>
+    </md-content>
+<body>
+    <ng-view></ng-view>
+</body>
 </html>

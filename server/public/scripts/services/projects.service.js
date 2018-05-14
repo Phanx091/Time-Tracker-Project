@@ -57,6 +57,6 @@ app.service("ProjectService", [
           .hideDelay(3000)
           .position("top right")
       );
-    };
+    }; //  end of angularjs material toast (self.addButtonToast)
   }
 ]); // end of app.service
