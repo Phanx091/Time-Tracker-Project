@@ -1,6 +1,3 @@
-
-
-
 <md-content layout-padding="">
     <h2>Add Entry</h2>
     <form name="userForm">
@@ -14,42 +11,42 @@
         </div>
 
 
-        <div layout-gt-sm="row">
-            <md-input-container class="md-block" flex-gt-sm="">
+        <div layout-gt-sm="row" layout="center center">
+            <md-input-container class="md-block">
                 <label>Select Project</label>
                 <md-select ng-model="new.project_id">
                     <md-option ng-repeat="project in vm.displayProject.list" ng-value="project.id">{{project.project_name}}</md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container class="md-block" flex-gt-sm="">
+
+            <md-input-container class="md-block">
                 <md-datepicker ng-model="new.date" md-placeholder="Enter date"></md-datepicker>
-                
             </md-input-container>
-            <div layout-padding="">
-                <label>Start Time:</label>
-                <input type="time" placeholder="Start Time" ng-model="new.start_time" style="width: 100px; height: 20px;">
-                <label>End Time:</label>
-                <input type="time" placeholder="End Time" ng-model="new.end_time" style="width: 100px; height: 20px;">
+
+            <md-input-container class="md-block">
+                <input type="time" placeholder="Start Time" ng-model="new.start_time" style="width: 120px; height: 20px;">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <input type="time" placeholder="End Time" ng-model="new.end_time" style="width: 120px; height: 20px;">
                 <md-button class="md-accent md-raised" ng-click="vm.postEntry(new)">submit</md-button>
-            </div>
-
+            </md-input-container>
         </div>
-
     </form>
 </md-content>
 
 
 
-  
+
 <md-content layout-padding="">
-<div layout-gt-sm="row">
-    <h2>History ({{filtered.length}})</h2>
-</div>
-<div layout-gt-sm="row">
-    <md-input-container class="md-block" flex-gt-sm="">
+    <div layout-gt-sm="row">
+        <h2>History ({{filtered.length}})</h2>
+    </div>
+    <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
             <input type="text" ng-model="query" placeholder="Search" style="width: 150px; height: 30px;">
-    </md-input-container>
-</div>
+        </md-input-container>
+    </div>
 
 </md-content>
 
@@ -75,4 +72,3 @@
         </thread>
     </table>
 </div>
-

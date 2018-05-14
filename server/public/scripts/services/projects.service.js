@@ -30,7 +30,6 @@ app.service("ProjectService", [
       })
         .then(function(response) {
           self.getProject();
-          console.log("successful self.postProject", response);
         })
         .catch(function(error) {
           console.log(`error on self.postProject ${error}`);
@@ -56,7 +55,7 @@ app.service("ProjectService", [
           .simple()
           .textContent("added project")
           .hideDelay(3000)
-          .position("bottom right")
+          .position("top right")
       );
     };
   }
