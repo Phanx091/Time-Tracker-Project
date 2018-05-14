@@ -4,7 +4,7 @@ app.controller('ReportsController', ['$http','ProjectService', 'EntryService', f
 
     // self.displayProject = ProjectService.listing;
 
-
+    // insert chart.js here
 
 
 
