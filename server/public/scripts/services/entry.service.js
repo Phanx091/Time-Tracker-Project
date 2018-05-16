@@ -56,7 +56,6 @@ app.service("EntryService", [
           .simple()
           .textContent("new entry added")
           .hideDelay(3000)
-          .position("top right")
       );
     }; // end of angularjs material toast (self.addToast)
 

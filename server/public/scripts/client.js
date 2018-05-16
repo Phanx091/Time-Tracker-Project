@@ -1,6 +1,6 @@
 console.log("client is loaded");
 
-var app = angular.module("TimeApp", ["ngRoute", "ngMaterial", "ngMessages"]);
+var app = angular.module("TimeApp", ["ngRoute", "ngMaterial", "ngMessages", "md.data.table"]);
 
 app.config([
   "$routeProvider",
