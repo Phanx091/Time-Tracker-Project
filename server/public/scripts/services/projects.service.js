@@ -55,7 +55,6 @@ app.service("ProjectService", [
           .simple()
           .textContent("added project")
           .hideDelay(3000)
-
       );
     }; //  end of angularjs material toast (self.addButtonToast)
   }
